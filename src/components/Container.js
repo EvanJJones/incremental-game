@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-// By extending the React.Component class, Counter inherits functionality from it
-function Counter() {
+function Container() {
   // Setting the initial state of the Counter component
   const [count, setCount] = useState(0);
   const [autoDelay, setAutoDelay] = useState(1000);
@@ -17,37 +16,18 @@ function Counter() {
     setCount(count + clickValue);
   };
 
-  const changeAutoValue = changeValue => {
-    setAutoValue(autoValue + changeValue);
-  };
-
-  const changeAutoDelay = changeValue => {
-    setAutoDelay(autoDelay + changeValue);
-  };
-
-  const changeClickValue = changeValue => {
-    setClickValue(clickValue + changeValue);
+  const increaseAutoValue = () => {
+    setAutoValue(autoValue + 1);
   };
 
   return (
     <div>
       <h1>Count: {count}</h1>
-      <p>
-        Tick Delay: {autoDelay}
-        <button onClick={() => changeAutoDelay(100)}>+</button>
-        <button onClick={() => changeAutoDelay(-100)}>-</button>{" "}
-      </p>
-      <p>
-        Value Per Tick: {autoValue}{" "}
-        <button onClick={() => changeAutoValue(1)}>+</button>
-        <button onClick={() => changeAutoValue(-1)}>-</button>
-      </p>
-      <p>
-        Click Value: {clickValue}
-        <button onClick={() => changeClickValue(1)}>+</button>
-        <button onClick={() => changeClickValue(-1)}>-</button>
-      </p>
+      <p>Tick Delay: {autoDelay} </p>
+      <p>Value Per Tick: {autoValue} </p>
+      <p>Click Value: {clickValue}</p>
       <button onClick={click}>Increment</button>
+      <button onClick={increaseAutoValue}>increaseAutoValue</button>
     </div>
   );
 }
@@ -73,4 +53,4 @@ function useInterval(callback, delay) {
   }, [delay]);
 }
 
-export default Counter;
+export default Container;
